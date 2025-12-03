@@ -9,9 +9,10 @@
 
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       77 WS-CHOICE PIC 9 VALUE 0.
+       77 WS-CHOICE PIC X(2) VALUE SPACES.
        77 WS-CONTINUE PIC X VALUE 'Y'.
        77 WS-INPUT-DATA PIC X(20).
+       77 WS-ENTER PIC X.
 
        *> Stack variables
        77 STACK-MAX PIC 9(3) VALUE 10.
@@ -23,15 +24,16 @@
 
        PROCEDURE DIVISION.
        MAIN-PARA.
-           PERFORM UNTIL WS-CONTINUE = 'N' OR WS-CONTINUE = 'n'
+           PERFORM UNTIL WS-CONTINUE = 'N'
                PERFORM DISPLAY-MENU
                PERFORM GET-CHOICE
                PERFORM PROCESS-CHOICE
 
-               IF WS-CONTINUE NOT = 'N' AND WS-CONTINUE NOT = 'n'
+               IF WS-CONTINUE NOT = 'N'
                    DISPLAY " "
-                   DISPLAY "Continue? (Y/N): " WITH NO ADVANCING
-                   ACCEPT WS-CONTINUE
+                   DISPLAY "Press ENTER to continue..."
+                       WITH NO ADVANCING
+                   ACCEPT WS-ENTER
                    DISPLAY " "
                END-IF
            END-PERFORM
@@ -55,18 +57,19 @@
 
        PROCESS-CHOICE.
            EVALUATE WS-CHOICE
-               WHEN 1
+               WHEN "1"
                    PERFORM PUSH-OPERATION
-               WHEN 2
+               WHEN "2"
                    PERFORM POP-OPERATION
-               WHEN 3
+               WHEN "3"
                    PERFORM PEEK-OPERATION
-               WHEN 4
+               WHEN "4"
                    DISPLAY " "
                    DISPLAY "Exiting program..."
                    MOVE 'N' TO WS-CONTINUE
                    EXIT PARAGRAPH
                WHEN OTHER
+                   DISPLAY " "
                    DISPLAY "Invalid choice! Please select 1-4."
            END-EVALUATE.
 
