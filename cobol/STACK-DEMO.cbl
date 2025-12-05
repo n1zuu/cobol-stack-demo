@@ -1,7 +1,8 @@
       ******************************************************************
-      * Author:
-      * Date:
-      * Purpose:
+      * Author: Vince Jevy B. Tapdasan
+      * Date: November 30, 2025
+      * Purpose: To demonstrate the Stack data structure in COBOL using
+      *          standard arrays (non-dynamic).
       * Tectonics: cobc
       ******************************************************************
        IDENTIFICATION DIVISION.
@@ -104,10 +105,7 @@
                DISPLAY "Top element: " WS-INPUT-DATA
            END-IF.
 
-       *> ================================
-       *> STACK IMPLEMENTATION SECTION
-       *> ================================
-
+       STACK-SECTION SECTION.
        DO-PUSH.
            IF STACK-TOP = STACK-MAX
                MOVE "STACK FULL" TO WS-STATUS
