@@ -1,10 +1,10 @@
-      ******************************************************************
-      * Author: Vince Jevy B. Tapdasan
-      * Date: November 30, 2025
-      * Purpose: To demonstrate the Stack data structure in COBOL using
-      *          standard arrays (non-dynamic).
-      * Tectonics: cobc
-      ******************************************************************
+      *>*****************************************************************
+      *> Author: Vince Jevy B. Tapdasan
+      *> Date: November 30, 2025
+      *> Purpose: To demonstrate the Stack data structure in COBOL using
+      *>          standard arrays (non-dynamic).
+      *> Tectonics: cobc
+      *>*****************************************************************
        IDENTIFICATION DIVISION.
        PROGRAM-ID. STACK-DEMO.
 
